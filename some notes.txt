@@ -1,0 +1,61 @@
+ SwingUtilities.invokeLater(ChessGameGui::new);
+This uses method reference syntax in Java. Specifically, ChessGameGui::new is a reference to the constructor of the ChessGameGui class.
+It's shorthand for a lambda expression like this: () -> new ChessGameGui().
+
+/////////////////////////////////
+private final Map<Class<? extends Piece>, String> pieceUnicodeMap = new HashMap<>() {
+      {
+          put(Pawn.class, "\u265F");
+          put(Rook.class, "\u265C");
+          put(Knight.class, "\u265E");
+          put(Bishop.class, "\u265D");
+          put(Queen.class, "\u265B");
+          put(King.class, "\u265A");
+      }
+  };
+
+Map<typ1,typ2>   Class<? extends Piece>  explain the type     new HashMap  means an obj
+new HashMap<>() {}   anonymous inner class
+{.....}  instance initializer block to execute the code when making an instance of the class 
+put(....)  out in map    Pawn.class i want the class itself    the unicodes of these pieces 
+///////////////////////////////////////////////
+square.addMouseListener(new MouseAdapter() {
+              @Override
+              public void mouseClicked(MouseEvent e) {
+                  handleSquareClick(finalRow, finalCol);
+              }
+          });
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+this.setForeground(color);    to appear infront  background
+**********************************************
+
+
+private void addResetOption(){
+        JMenuBar bar=new JMenuBar();
+        JMenu menu=new JMenu("Game");
+        JMenuItem res=new JMenuItem("Reset");
+        res.addActionListener(e->resetGame());
+        menu.add(res);
+	bar.add(menu);
+        setJMenuBar(bar);
+    }
+-----------++++++++++-+-+-+-+-+-+-+-/////////////////////
+private void checkGameOver(){
+        if(game.isCheckMate(game.getCurrentPlayerColor())){
+            int response=JOptionPane.showConfirmDialog(this,"Checkmate! Would you like to play again?","Game Over",JOptionPane.YES_NO_OPTION);
+            if(response==JOptionPane.YES_OPTION) resetGame();
+            else System.exit(0);
+        }
+    }
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+In Java, the syntax for passing by reference and by value doesn't explicitly change. Java always uses pass-by-value. However, there’s a distinction based on what is being passed:
+
+Primitive types (e.g., int, float, boolean, etc.) are passed by value.
+Objects (e.g., arrays, classes, lists) are passed by value, but the value is the reference to the object, effectively giving the illusion of pass-by-reference.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+switch (selectedPiece.getClass().getSimpleName())
+In Java, the expression selectedPiece.getClass().getSimpleName() returns the simple name of the class of the selectedPiece object (i.e., just the class name without the package name). Using this inside a switch statement allows you to branch your logic based on the type of the object at runtime.
+-+-+/---+--+-+/+-+-+-+-+-+/+-+/++
+new int[][]{{1,0},{-1,0},{0,1},{0,-1},{1,1},{-1,1},{1,-1},{-1,-1}}
+convenient way to create anonymous bject of an 2d int array
